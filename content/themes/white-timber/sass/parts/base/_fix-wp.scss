@@ -1,0 +1,17 @@
+#wp-admin-bar-vc_inline-admin-bar-link,
+#wp-admin-bar-new_draft,
+#wp-admin-bar-new-content,
+#wp-admin-bar-comments,
+#wp-admin-bar-updates,
+#wp-admin-bar-customize,
+#wp-admin-bar-wp-logo{
+    display: none!important;
+}
+
+#wpadminbar{
+    position:fixed!important;
+}
+
+figure{
+    margin: 20px 0;
+}

@@ -1,0 +1,96 @@
+.card-theme{
+    transition: $transition;
+    cursor: pointer;
+    &__img{
+        height:200px;
+        width:100%;
+        background-position:center center;
+        background-size:cover;
+        transition: $transition;
+    }
+    .uk-card-title a{
+        color: $color-text;
+    }
+    &.uk-card-hover{
+        h3{
+            transition: $transition;
+        }
+        &:hover{
+            box-shadow: 0 0px 12px rgba(0,0,0,.2);
+            .uk-card-title a{
+                color: $color-text-2;
+                text-decoration: none;
+            }
+            transform: scale(1.02);
+        }
+    }
+}
+
+.card-modern{
+    transition: $transition;
+    cursor: pointer;
+    height: 100%;
+    padding-bottom: 70px;
+    &__img{
+        height:200px;
+        width:100%;
+        border-radius: 4px;
+        overflow: hidden;
+        &__inner{
+            background-position:center center;
+            background-size:cover;
+            width: 100%;
+            height: 100%;
+            transition: $transition;
+        }
+    }
+    
+    &__body{
+        a{
+            color: $color-text;
+            text-decoration: none;
+        }
+        p{
+            font-size: rem(14px);
+        }
+    }
+    &__categories{
+        margin-bottom:4px;
+        font-size: rem(14px);
+    }
+    &__meta{
+        position: absolute;
+        bottom: 10px;
+
+    }
+    &__date{
+        color: $color-text-light;
+        font-size: rem(14px);
+        .uk-icon{
+            margin-right: 5px;
+        }
+    }
+    &__readmore{
+        color: $color-text-2;
+        margin-top:10px;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: rem(14px);
+        transition: $transition;
+        .uk-icon{
+            transition: $transition;
+        }
+    }
+    &:hover{
+        .card-modern__img__inner{
+            transform: scale(1.2);
+        }
+        .card-modern__readmore{
+            color: $color-text-3;
+            .uk-icon{
+                color: $color-text-3;
+                margin-left: 10px;
+            }
+        }
+    }
+}

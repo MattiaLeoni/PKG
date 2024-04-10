@@ -1,0 +1,83 @@
+.wpcf7-form{
+    .wpcf7-text, .wpcf7-textarea{
+        width:100%;
+        float:left;
+        border-radius: 4px;
+        border:1px solid #cccccc;
+        color: $color-text;
+        font-family: $font-family-base;
+        padding: 10px 10px;
+        transition: $transition;
+        margin-bottom: 10px;
+        @include placeholder{
+            font-size: 16px;
+        }
+        @include tablet{
+            width: 100%!important;
+            margin: 10px 0;
+        }
+        &.wpcf7-not-valid{
+            border-color:red;
+        }
+    }
+    .wpcf7-submit{
+        // height: 45px;
+        // padding: 10px 30px;
+        // font-size: rem(16px);
+        // border:0px;
+        // background-color: $color-2;
+        // font-weight: 500;
+        // transition: $transition;
+        // color:white;
+        // border-radius: 4px;
+        margin-top: 10px;
+        @extend .theme-button;
+
+
+        @include tablet{
+            width: 100%!important;
+            margin: 10px 0;
+        }
+    }
+    .wpcf7-textarea{
+        height: 150px;
+    }
+    p{
+        margin-bottom: 15px;
+    }
+    .wpcf7-list-item{
+        margin: 0px;
+        label{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor:pointer;
+            span{
+                padding-left: 10px;
+            }
+            input{
+                width: 15px;
+                height: 15px;
+            }
+        }
+    }
+}
+.wpcf7-not-valid-tip{
+    display:none!important;
+}
+div.wpcf7-validation-errors, div.wpcf7-acceptance-missing, div.wpcf7-mail-sent-ok, div.wpcf7-spam-blocked {
+    border-radius: 0;
+    padding: 10px 20px;
+    text-align: center;
+    margin: 0 0 10px 0;
+    border-color: red;
+    background-color:red;
+    color:white;
+    width: calc(100% - 20px);
+    margin: 10px;
+    font-weight: bold;
+    &.wpcf7-mail-sent-ok{
+        background-color: $color-2;
+        border-color: $color-2;
+    }
+} 

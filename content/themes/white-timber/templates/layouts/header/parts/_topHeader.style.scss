@@ -1,0 +1,82 @@
+.site-header{
+    /* TOP HEADER */
+    .top-header{
+        height: $top_header_height;
+        background: $color-header-top-bg;
+        color: $color-header-top;
+        font-size: rem(14px);
+        font-weight: 400;
+        overflow: hidden;
+        // text-transform: uppercase;
+        padding:0 30px;
+        @include phone{
+            padding: 0 15px;
+        }
+
+        @include media('<#{$header_switch}'){
+            height: $top_header_height_mobile;
+        }
+        .header-container{
+            width:100%;
+            max-width:1200px;
+            margin:0 auto;
+            padding: 0px;
+            @include media('<=1220px'){
+                padding: 0 40px;
+            }
+            @include tablet{
+                padding: 0 30px;
+            }
+            @include phone{
+                padding: 0 15px;
+            }
+        }
+        &__meta{
+            margin-left: $nav-margin;
+            a{
+                color: white;
+                font-weight: 400;
+                .uk-icon{
+                    margin-right: 5px;
+                    svg{
+                        height:18px;
+                    }
+                }
+            }
+        }
+        .nav-languages{
+            text-transform: uppercase;
+            border-left: 1px solid $color-text-light;
+            padding-left: #{$nav-margin - 5px};
+            ul{
+                li{
+                    line-height: normal;
+                    padding: 0px!important;
+                    margin-left: 5px;
+                    &:not(:last-of-type){
+                        border: 0px;
+                    }
+                    a{
+                        color: $color-text-lighter;
+                        text-decoration: none;
+                        font-weight: 600;
+                    }
+                    &.current-lang{
+                        a{
+                            color: $color-header-top;
+                        }
+                    }
+                }
+            }
+        }
+        .search-btn-header{
+            label{
+                background: transparent;
+            }
+        }
+        .top-search-label{
+            margin-right:5px;
+            cursor:pointer;
+        }
+    }
+}

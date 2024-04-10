@@ -1,0 +1,36 @@
+{% extends "base.twig" %}
+
+{% block intro %}
+	{{post.content}}
+{% endblock %}
+{% block content %}
+	<div class="container mx-auto px-4">
+		<div class="mt-8 mb-8">
+			<div class="uk-grid-large" uk-grid>
+				<div class="uk-width-1-4@l uk-visible@l archive-filters">
+					{% include 'common/searchform.template.twig' %}
+					{% include 'common/category-list.twig' %}
+					<div class="uk-margin-medium-top">
+						{% set button_title = 'Contattaci' %}
+						{% set button_style = 'uk-width-1-1' %}
+						{% include 'components/simpleButton/simpleButton.template.twig' %}
+					</div>
+				</div>
+				<div class="uk-width-3-4@l">
+					<div class="uk-grid-medium uk-grid-match uk-child-width-1-2@s" uk-grid>
+						{% for post in posts %}
+							{% include ['layouts/tease/tease-'~post.post_type~'.template.twig', 'layouts/tease/tease-modern.template.twig'] %}
+						{% endfor %}
+					</div>
+					{% if posts is empty %}
+						<span class="text-l">{{trl('Nessun risultato.')}}</span>
+					{% endif %}
+
+					<div class="uk-margin-medium-top">
+						{% include 'common/pagination.template.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

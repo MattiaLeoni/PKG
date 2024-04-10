@@ -1,0 +1,12 @@
+<div class="tease tease-{{post.post_type}} " id="tease-{{post.ID}}">
+	{% block content %}
+		<div class="uk-card uk-card-default card-theme uk-card-hover" onclick="location.href='{{post.link}}'">
+            <div class="card-theme__img lazy" data-bg="url({{post.thumbnail.src}})">
+            </div>
+            <div class="uk-card-body">
+                <h3 class="uk-card-title uk-margin-small-bottom"><a href="{{post.link}}">{{post.title}}</a></h3>
+                <p>{{post.preview}}</p>
+            </div>
+		</div>
+	{% endblock %}
+</div>

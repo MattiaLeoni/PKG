@@ -1,0 +1,18 @@
+.breadcrumbs{
+    font-size: rem(14px);
+    color: $color-text-light;
+    .separator{
+        margin: 0 8px;
+        font-size: rem(20px);
+        font-weight: 300;
+    }
+    span{
+        color: $color-text-lighter;
+    }
+    a{
+        color: $color-text-light;
+    }
+    @include phone{
+        display:none;
+    }
+}

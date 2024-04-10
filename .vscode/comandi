@@ -1,0 +1,14 @@
+SASS WATCH
+sass --watch content/themes/white-timber/sass:content/themes/white-timber/css
+
+TS WATCH 
+tsc --watch content/themes/white-timber/js/maints.ts
+
+LIVERELOAD
+bundle exec guard
+
+NEW COMPONENT
+composer component:new component_name component_category
+
+DELETE COMPONENT
+composer component:delete component_slug

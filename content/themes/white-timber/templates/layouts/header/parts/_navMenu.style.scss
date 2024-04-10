@@ -1,0 +1,93 @@
+
+/**
+ NAV MENU
+*/
+.nav-main{
+    height:100%;
+    z-index: 3;
+    transition: opacity 0.5s;
+    @extend .title-style;
+    @include when-inside('.uk-offcanvas-page'){
+        opacity:0;
+    }
+    ul.menu-0{
+        height:100%;
+        display:flex;
+        padding: 0px;
+        list-style: none;
+        display: flex;
+        align-items: center;
+        cursor: default;
+        @include media('<=#{$header_switch}'){
+            display: none;
+        }
+        li{
+            display: flex; 
+            align-items: center;
+            height:100%;
+            margin: 0 15px;
+            padding: 0; //5px;
+            position:relative;
+            &.menu-item-has-children{
+                cursor:pointer;
+            }
+            &:hover{
+                .menu-1{
+                    display:block;
+                }
+            }
+            a{
+                color:$color-text-header;
+                font-weight: 500;
+                text-decoration: none;
+                font-size: rem(18px);
+        
+            }
+        }
+        li:last-child{
+            ul.menu-1{
+                left: auto;
+                right:0px;
+            }
+        }
+    }
+    ul.menu-1{
+        cursor: default;
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: -20px;
+        padding: 20px 0 ;
+        width: auto;
+        min-width: 200px; /* WIDTH OF THE SUB MENU */
+        background-color: $color-bg-dark;
+        list-style: none;
+        height:auto;
+        transition: $transition;
+        animation-duration: .3s;
+        z-index: 88;
+        li{
+            padding: 5px 20px;
+            cursor:default;
+            margin-left:0px;
+            a{
+                color:$color-text-lighter;
+                font-size: rem(13px);
+                font-weight: 500;
+                transition: $transition;
+                // text-transform: none;
+                &:hover{
+                    padding-left:5px;
+                    color:white;
+                }
+            }
+            
+            &.active{
+                color: white;
+                a{
+                    color:white;
+                }
+            }
+        }
+    }
+}

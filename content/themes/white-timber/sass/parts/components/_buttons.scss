@@ -1,0 +1,39 @@
+.theme-button{
+    background: linear-gradient(90deg, $color-1, $color-1-dark);
+    background-color: $color-1;
+    color: white;
+    border: 0px solid white;
+    padding: 12px 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-family: $font-family-titles;
+    transition: $transition;
+    pointer-events: all!important;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    div{
+        position: relative;
+        z-index: 1;
+    }
+    &:before{
+        z-index: 0;
+        content: "";
+        background: linear-gradient(45deg, $color-1, transparent);
+        position: absolute;
+        width: 0px;
+        height: 100%;
+        top:0px;
+        left:0px;
+        transition: $transition;
+    }
+    &:hover{
+        &:before{
+            width:200%;
+        }
+    }
+    @include when-inside('.newsletter-fascia'){
+        margin-top: 5px;
+        margin-bottom:5px;
+    }
+}

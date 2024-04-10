@@ -1,0 +1,9 @@
+/wp
+/content/plugins/*
+/content/vendor/*
+/content/uploads/*
+composer.lock
+*.code-workspace
+/.sass-cache
+/.vscode/settings.json
+/node_modules

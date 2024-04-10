@@ -1,0 +1,6 @@
+<div class="breadcrumbs uk-flex uk-flex-middle">
+    {% for key, crumb in breadcrumbs %}
+        {% if key != 0 %}<span class="separator">/</span>{% endif %}
+        {{crumb}}
+    {% endfor %}
+</div>

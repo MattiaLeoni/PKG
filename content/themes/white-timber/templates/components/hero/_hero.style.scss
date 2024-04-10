@@ -1,0 +1,24 @@
+.hero{
+    height: calc(100vh - $main_header_height);
+    @include when-inside('.admin-bar '){
+        height: calc(100vh - $main_header_height - 32px);
+    }
+    .splide{
+        &__slide{
+            .overlay{
+                background: rgba(0, 0, 0, 0.7);
+            }
+            min-height: 150px;
+            
+        }
+        &__pagination{
+            &__page{
+                background-color: black;
+                opacity: 1;
+                &.is-active{
+                    background-color: $color-1;
+                }
+            }
+        }
+    }
+}

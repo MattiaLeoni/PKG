@@ -1,0 +1,47 @@
+{
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/MattiaLeoni/wp_plugins"
+    }
+  ],
+  "config"      : {
+    "vendor-dir": "content/vendor",
+    "allow-plugins": {
+      "johnpbloch/wordpress-core-installer": true,
+      "composer/installers": true
+    }
+  },
+  "require": {
+    "php": ">=5.4",
+    "johnpbloch/wordpress": "*",
+    "mleoni/plugins": "dev-master",
+    "wpackagist-plugin/timber-library": "*",
+    "wpackagist-plugin/disable-gutenberg": "*",
+    "wpackagist-plugin/custom-post-type-ui": "*",
+    "wpackagist-plugin/duplicate-post": "*",
+    "wpackagist-plugin/wordpress-seo": "*",
+    "wpackagist-plugin/page-loading-effects": "*",
+    "wpackagist-plugin/codepress-admin-columns": "*",
+    "wpackagist-plugin/ninja-forms": "*"
+  },
+  "extra": {
+    "wordpress-install-dir": "wp",
+    "installer-paths": {
+      "content/plugins/{$name}/": ["type:wordpress-plugin"],
+      "content/plugins/": ["type:wordpress-muplugin"]
+    }
+  },
+  "scripts": {
+    "sasswatch": "sass --watch content/themes/white-timber/:content/themes/white-timber/",
+    "livereload": "bundle exec guard",
+    "component:new": "php -f scripts/new_component.php",
+    "component:delete": "php -f scripts/delete_component.php",
+    "tailwind": "npx tailwindcss -i ./content/themes/white-timber/sass/tailwind.css -o ./content/themes/white-timber/sass/tailwind-compiled.css --watch"
+
+  }
+}

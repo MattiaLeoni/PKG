@@ -1,0 +1,12 @@
+{
+  "devDependencies": {
+    "tailwindcss": "^3.3.2"
+  },
+  "scripts": {
+    "tailwind": "npx tailwindcss -i ./content/themes/white-timber/sass/tailwind.css -o ./content/themes/white-timber/sass/tailwind-compiled.css --watch",
+    "sass": "sass --watch content/themes/white-timber/:content/themes/white-timber/",
+    "live": "bundle exec guard",
+    "start-all": "npm run tailwind && npm run sass && npm run live"
+  }
+
+}

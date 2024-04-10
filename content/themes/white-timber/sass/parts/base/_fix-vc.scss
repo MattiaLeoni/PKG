@@ -1,0 +1,31 @@
+@mixin fix-vc-grid($n) {
+    &.vc_column-gap-#{$n}{
+        margin-left: -( calc($n/2) )+px;
+        margin-right: -( calc($n/2) )+px;
+        width: calc(100% + #{$n}px);
+        max-width: calc(100% + #{$n}px);
+    }
+}
+$grid-gap-measures: 1, 2, 3, 4, 5, 10, 15, 20, 25, 30, 35;
+.white-theme{
+    .content-wrapper{
+        .vc_row{
+            max-width: 100%;
+            margin-left: 0px;
+            margin-right: 0px;
+            .vc_column_container>.vc_column-inner{
+                padding-left: 0px;
+                padding-right: 0px;
+            }
+            @each $size in $grid-gap-measures{
+                @include fix-vc-grid($size);
+            }
+        }
+    }
+    .vc_row-o-equal-height .wpb_column div {
+        height: 100%;
+    }
+    .wpb_content_element{
+        margin-bottom:0px;
+    }
+}

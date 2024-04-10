@@ -1,0 +1,10 @@
+<div class="contactFormSection lazy {% if vc.img_url %} has-bg-img {% endif %}" style="background-color: {{ vc.bg_large }};" uk-parallax="bgy: -200" data-bg="url({{ vc.img_url }})">
+    <div class="uk-container">
+        <div class="contactFormSection__form uk-margin-large-top uk-margin-large-bottom {% if vc.img_url or vc.bg_form %} uk-padding-large {% endif %} " style="background-color: {{ vc.bg_form }}">
+            <h2 class="uk-margin-small-bottom">{{trl('Richiedi informazioni')}}</h2>
+            <p class="uk-margin-medium-bottom">{{trl('Compila il form sottostante e ti risponderemo alla tua richiesta il prima possibile')}}</p>
+
+            {{ function('do_shortcode', '[ninja_form id="'~ vc.shortcode ~'" ]') }}
+        </div>
+    </div>
+</div>

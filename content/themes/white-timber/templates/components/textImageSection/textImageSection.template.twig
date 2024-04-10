@@ -1,0 +1,12 @@
+<div class="textImageSection" style="background-color: {{vc.bg_text}}">
+    <div class="uk-container">
+        <div class="uk-margin-large-top uk-margin-large-bottom {% if vc.align == 'center' %} uk-text-center {% endif %}">
+            <div><h3 style="color: {{vc.color_text}}">{{vc.title}}</h3></div>
+            {% if vc.text %}<div class="uk-margin-top text-l" style="color: {{vc.color_text}}"><p >{{vc.text}}</p></div>{% endif %}
+            {% if vc.link_text %}<div class="{% if vc.text is empty %}uk-margin-top{% endif %}"><a href="{{vc.link}}" style="color: {{vc.color_text}}" class="uk-text-bold link-default">{{vc.link_text}}</a></div>{% endif %}
+        </div>
+    </div>
+</div>
+<div class="uk-container uk-position-relative uk-margin-large-bottom">
+    <div class="textImageSection__img lazy" data-bg="url({{vc.img_url}})"></div>
+</div>

@@ -1,0 +1,10 @@
+/*
+Theme Name: White theme
+Description: Tema di base modulabile
+Author: Mattia Leoni
+Author URI: https://www.mattialeoni.it/
+Version: 1.2
+ 
+*/
+@import url('sass/tailwind-compiled.css');
+@import url('sass/main.css');

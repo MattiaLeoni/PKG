@@ -1,0 +1,77 @@
+.archive-filters{
+    &__title{
+        font-size: rem(20px);
+        text-transform: uppercase;
+        color: $color-text-light;
+        font-weight: 600;
+        @extend .font-titles;
+    }
+    &__list{
+        ul.uk-accordion{
+            li{
+                a{
+                    font-family: $font-family-titles;
+                    color: $color-text;
+                    font-size: rem(16px);
+                    &.active{
+                        color: $color-text-2;
+                        font-weight: bold;
+                    }
+                    
+                }
+                margin: 10px 0;
+                .uk-accordion-content{
+                    margin:5px 0;
+                    ul{
+                        list-style-type: none;
+                        padding-left: 0px;
+                        li{
+                            padding: 3px 0 3px 10px ;
+                            border-left: 1px solid $color-grey;
+                            margin: 0px;
+                            &.show-all{
+                                color: $color-text-light;
+                                padding-left: 2px;
+                                padding-top: 3px;
+                                border-left: 0px;
+                                a{
+                                    color: $color-text-light;
+                                    font-weight: 600;
+                                }
+                            }
+                            a{
+                                font-family: $font-family-base;
+                                font-size: rem(14px);
+                            }
+                            &:last-of-type{
+                                margin-bottom: 0px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .searchform{
+        input{
+            width: 100%;
+            background-color: $color-bg-3;
+            border: 0px;
+            border-radius: 4px;
+            padding:15px 20px;
+        }
+        button{
+            position: absolute;
+            right: 10px;
+            width: 40px;
+            height: 40px;
+            border: 0px;
+            padding: 10px;
+            transition: $transition;
+            &:hover{
+                opacity: 0.6;
+            }
+        }
+        
+    }
+}

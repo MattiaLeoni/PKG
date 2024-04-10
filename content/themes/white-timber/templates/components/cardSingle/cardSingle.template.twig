@@ -1,0 +1,12 @@
+<div>
+    {% if vc.link is not empty %}<a class="link-wrapper" href="{{ vc.link }}">{% endif %}
+        <div class="uk-card uk-card-default uk-card-body ">
+            {% if vc.img_url is not empty %}
+                <div class="card-img" style="background-image:url({{ vc.img_url }})">
+                </div>
+            {% endif %}
+            <h3 class="uk-card-title uk-margin-small-bottom">{{ vc.title }}</h3>
+            <p>{{ vc.text }}</p>
+        </div>
+    {% if vc.link is not empty %}</a>{% endif %}
+</div>

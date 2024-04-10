@@ -1,0 +1,52 @@
+{% block html_head_container %}
+
+{% include 'html-header.twig' %}
+	{% block head %}
+	{% endblock %}
+	</head>
+{% endblock %}
+
+	<body class="{{body_class}} white-theme {% if options.header_style == 'floating' %} floating-header {% endif %}" data-template="base.twig">
+
+		{% if options.header_style == 'floating' %}
+				{% include 'layouts/headerFloating/headerFloating.template.twig' %}
+		{% else %}
+				{% include 'layouts/header/header.template.twig' %}
+		{% endif %}
+		
+
+		<section id="content" role="main" class="content-wrapper">
+			<div class="wrapper {{sidebar_class}}">
+				{% block intro %}
+
+				{% endblock %}
+				{% block content %}
+					Sorry, no content
+				{% endblock %}
+			</div>
+			{# {% if sidebar %}
+				<aside class="layout-sidebar">
+					{{sidebar}}
+				</aside> 
+			{% endif %} #}
+		</section>
+
+		{% block footer %}
+			<footer id="footer">
+				{% include 'layouts/footer/footer.template.twig' %}
+			</footer>
+			{{ function('wp_footer') }}
+		{% endblock %}
+		<script>
+			/* LAZYLOAD JS - MESSO QUI PER FARLO FUNZIONARE CON IL FRONTEND EDITOR DI WPBAKERY */
+			(function( $ ){
+				$(document).ready(function(){
+					var lazyLoadInstance = new LazyLoad({
+						elements_selector: ".lazy"
+					});
+				});
+			})( jQuery );
+		</script>
+
+	</body>
+</html>

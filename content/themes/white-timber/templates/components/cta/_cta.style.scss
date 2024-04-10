@@ -1,0 +1,25 @@
+.cta{
+    &__title{
+        font-size: rem(32px);
+        font-weight: 600;
+        font-family: $font-family-titles;
+        @include phone{
+            font-size: rem(26px);
+        }
+    }
+    &__text{
+        font-size: rem(18px);
+        @include phone{
+            font-size: rem(16px);
+        }
+    }
+    &__link{
+        @include tablet{
+            justify-content: center;
+        }
+    }
+
+    @include tablet{
+        text-align: center;
+    }
+}

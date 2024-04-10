@@ -1,0 +1,27 @@
+{% if categories is not empty %}
+    <div class="archive-filters__title uk-margin-bottom uk-margin-medium-top">{{trl('Categorie')}}</div>
+    <div class="archive-filters__list">
+        <ul uk-accordion>
+        {% for cat in categories %}
+            <li class=" {{cat.open}}">
+            {% if cat.children is not empty %}
+                <a class="uk-accordion-title {{cat.active}}" href="#">{{cat.name}}</a>
+                <div class="uk-accordion-content">
+                    <ul>
+                        {% for children in cat.children %}
+                            <li>
+                                <a class="{{children.active}}" href="{{children.url}}">{{children.name}}</a>
+                            </li>
+                        {% endfor %}
+                        <li class="show-all" ><a href="{{cat.url}}">{{trl('Visualizza tutti')}}</a></li>
+                    </ul>
+                </div>
+            {% else %}
+                <a class="no-children" href="#"><a class="{{cat.active}}" href="{{cat.url}}">{{cat.name}}</a></a>
+            {% endif %}
+            </li>
+        {% endfor %}
+        <li><a class="text-color-light" href="{{blog_url}}">{{trl('Visualizza tutti')}}</a></li>
+        </ul>
+    </div>
+{% endif %}

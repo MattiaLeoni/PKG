@@ -1,0 +1,137 @@
+$facebook-color: #3b5998;
+$instagram-color: #C13584;
+$twitter-color: #1DA1F2;
+$linkedin-color: #2867B2;
+$whatsapp-color: #25D366;
+$reddit-color: #FF4500;
+$google-color: #1DA1F2;
+$youtube-color: #FF0000;
+$github-color: #1DA1F2;
+.social-list{
+    &__single{
+        margin-right:5px;
+        // background: $color-text;
+        width:22px;
+        height:22px;
+        border-radius:3px;
+        transition: $transition;
+        // background-color: $color-text-lighter;
+        svg{
+            transition: $transition;
+            width:18px;
+            color:$color-header-top;
+        }
+        &:hover{
+            // svg{
+            //     color: $color-1;
+            // }
+            &.facebook svg{
+                color: $facebook-color;
+            }
+            &.instagram svg{
+                color: $instagram-color;
+            }
+            &.twitter svg{
+                color: $twitter-color;
+            }
+            &.linkedin svg{
+                color: $linkedin-color;
+            }
+            &.whatsapp svg{
+                color: $whatsapp-color;
+            }
+            &.reddit svg{
+                color: $reddit-color;
+            }
+            &.google svg{
+                color: $google-color;
+            }
+            &.youtube svg{
+                color: $youtube-color;
+            }
+            &.github svg{
+                color: $github-color;
+            }
+
+        }
+    }
+    @include when-inside('#footer'){
+        margin-top:5px;
+        @include breakpoint('s'){
+            margin-left:-8px;
+        }
+        a{
+            .social-list__single{
+                background-color:transparent;
+                svg{
+                    color:white;
+                }
+                &:hover{
+                    svg{
+                        color: $color-1;
+                    }
+                }
+            }
+            &:first-of-type{
+                .social-list__single{
+                    margin-left:0px;
+                }
+            }
+        }
+    }
+    @include when-inside('.floating'){
+        a{
+            .social-list__single{
+                background-color:white;
+                border-radius: 100% ;
+                width:32px;
+                height:32px;
+                margin-right: 10px;
+        
+                svg{
+                    color:$color-text;
+                    width: 15px;
+                }
+                &:hover{
+                    background-color: $color-1;
+                    svg{
+                        color: white;
+                    }
+                }
+            }
+            &:first-of-type{
+                .social-list__single{
+                    margin-left:0px;
+                }
+            }
+        }
+    }
+    @include when-inside('.modal-menu'){
+        a{
+            .social-list__single{
+                background-color:white;
+                border-radius: 100% ;
+                width:32px;
+                height:32px;
+                margin-left: 10px;
+                margin-right: 0px;
+                
+                svg{
+                    color:$color-text;
+                    width: 15px;
+                }
+                &:hover{
+                    background-color: $color-1;
+                    svg{
+                        color: white;
+                    }
+                }
+            }
+            &:first-of-type{
+                .social-list__single{
+                    margin-left:0px;
+                }
+            }
+        } 
+    }
+}

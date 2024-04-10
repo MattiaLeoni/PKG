@@ -1,0 +1,16 @@
+<ul class="menu-0">
+{% for item in menus.primary %}
+    <li class="menu-0-item menu-item-{{ item.id }} {% if item.active %}active{% endif %} {% if item.children is not empty %}menu-item-has-children{% endif %}">
+        <a class="underline-effect" href="{{ item.url }}">{{ item.title }}</a>{% if item.children is not empty %}<span uk-icon="triangle-down"></span>{% endif %}
+        {% if item.children is not empty %}
+            <ul class="menu-1 uk-animation-fade">
+                {% for subitem in item.children %}
+                    <li class="menu-1-item menu-item-{{ subitem.id }} {% if subitem.active %}active{% endif %}">
+                        <a href="{{ subitem.url }}">{{ subitem.title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </li>
+{% endfor %}
+</ul>

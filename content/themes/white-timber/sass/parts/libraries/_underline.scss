@@ -1,0 +1,60 @@
+$red: #F37272;
+$brown: #584E4A;
+$whitey: #f0f0f0;
+
+$duration: .2s;
+$distance: 8px;
+$easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+
+.underline-effect {
+  text-decoration: none;
+  position:relative;
+  &:hover{
+    text-decoration: none!important;
+  }
+  
+   &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0; right: 0;
+        height: 1px;
+        background-color: black;
+        
+        @include when-inside('.active'){
+            opacity:1!important;
+            transform: translateY(0px)!important;
+        }
+    }
+    &.negative{
+        &:before,
+        &:after {
+            background-color: white;
+        }
+    }
+    &:before {
+        opacity: 0;
+        transform: translateY(- $distance);
+        transition: transform 0s $easeOutBack, opacity 0s;
+    }
+    &:after {
+        opacity: 0;
+        transform: translateY( calc($distance/2) );
+        transition: transform $duration $easeOutBack, opacity $duration;
+    }
+    &:hover,
+    &:focus {
+        &:before,
+        &:after {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        &:before {
+            transition: transform $duration $easeOutBack, opacity $duration;
+        }
+        &:after {
+            transition: transform 0s $duration $easeOutBack, opacity 0s $duration;
+        }
+    }
+}

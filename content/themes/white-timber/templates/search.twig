@@ -1,0 +1,10 @@
+{# see `archive.twig` for an alternative strategy of extending templates #}
+{% extends "index.twig" %}
+
+
+{% block intro %}
+  <div class="container mx-auto px-4 uk-margin-top ">
+    <h1>{{trl('Ricerca')}}</h1>
+    <h2>“<span class="text-color-2">{{searched}}</span>”</h2>
+  </div>
+{% endblock %}

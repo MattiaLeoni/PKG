@@ -1,0 +1,21 @@
+.uk-card-body{
+    padding: 20px 30px; 
+}
+
+
+.uk-dotnav{
+    li{
+        a{
+            background-color: $color-grey;
+            border-color: transparent;    
+            transition: $transition;
+        }
+        &.uk-active{
+            a{
+                background-color: $color-1;
+                width: 25px;
+                border-radius: 5px;
+            }
+        }
+    }
+} 

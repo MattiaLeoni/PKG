@@ -1,0 +1,72 @@
+
+<div class="hero">
+    <div class="grid lg:grid-cols-2 gap-0 lg:h-full">
+        {# Video e overlay #}
+        <div class="h-full relative">
+            <video class="h-full object-cover z-10 min-h-[400px]" loop muted autoplay>
+                <source src="{{component.video_bg}}" type="video/mp4">
+            </video>
+            <div class="absolute w-full h-full top-0 left-0 z-20 mix-blend-hard-light lazy bg-cover opacity-90" data-bg="url({{component.img_overlay_url}})">
+            </div>
+            <div class="absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] z-30 w-full px-8 lg:px-10">
+                <div class="text-white font-shortcut text-4xl lg:text-[7vh]  leading-[1.2]">
+                    {{component.title}}
+                </div>
+            </div>
+        </div>
+        {# Schede #}
+        <div class="h-full relative">
+            <section class="splide h-auto lg:h-full border-l border-l-black">
+                <div class="splide__track">
+                        <ul class="splide__list">
+                            {% for i, scheda in component.schede %}
+                                <li class="group splide__slide lazy bg-cover overflow-hidden {% if i + 1 < component.schede|length %} border-b border-b-black {% endif %}" data-bg="url({{scheda.img_url}})">
+                                    <div class="h-full w-full gap-6 flex flex-row-reverse md:flex-row items-center justify-between md:justify-end px-6 absolute z-30 pointer-events-none">
+                                        <div class="text-black text-lg text-right font-semibold font-titles group-hover:opacity-0 transition-all">
+                                            {{scheda.title_card_line}}
+                                        </div>
+                                        <div class="">
+                                            {% if scheda.logo_url %}
+                                                <img class="h-28 2xl:h-36 max-h-full" src="{{scheda.logo_url}}" alt="">
+                                            {% else %}
+                                                <div class="w-28"></div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <div class="overlay h-full w-full transition-all left-0 top-0 z-20 absolute opacity-0 group-hover:opacity-100 flex justify-end flex-col p-8 pl-36 md:pl-8 md:pr-40 lg:pr-60 text-right md:text-left">
+                                        <hr class="border-white w-full">
+                                        <div class="text-white text-lg lg:text-2xl font-titles mt-4">
+                                            {{scheda.title_card}}
+                                        </div>
+                                        <div class="mt-4 text-white font-titles">
+                                            <a class="text-white hover:no-underline hover:text-white flex items-center float-right md:float-none gap-2 hover:gap-3 transition-all w-fit" href="{{scheda.link}}">{{scheda.link_text}} <img class="h-4" src="{{theme.link}}/assets/imgs/arrow-right.png" alt=""></a>
+                                        </div>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                </div>
+            </section> 
+        </div>
+    </div>
+</div>
+
+<script>
+
+var splide = new Splide( '.splide', {
+    direction: 'ttb',
+    height   : '100%',
+    wheel    : true,
+    perPage : 4,
+    perMove: 1,
+    releaseWheel: true,
+    breakpoints: {
+		1023: {
+			destroy: true,
+		},
+    }
+} );
+
+splide.mount();
+
+</script>

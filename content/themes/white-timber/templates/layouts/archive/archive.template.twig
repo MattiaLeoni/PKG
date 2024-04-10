@@ -1,0 +1,17 @@
+{# This file demonstrates using most of the index.twig template and modifying 
+   just a small part. See `search.twig` for an example of another approach #}
+
+{% extends "index.twig" %}
+
+{% block intro %}
+  <div class="container mx-auto px-4 uk-margin-medium-top">
+    <div class="">
+      <h1>{{title}}</h1>
+      {% if description %}<p class="text-l uk-margin-small-top">{{description}}</p>{% endif %}
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+  {{ parent() }}
+{% endblock %}

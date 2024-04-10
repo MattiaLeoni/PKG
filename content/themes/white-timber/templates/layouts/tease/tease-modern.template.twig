@@ -1,0 +1,32 @@
+{% extends "layouts/tease/tease.template.twig" %}
+
+{% block content %}
+		<div class="card-modern uk-position-relative" onclick="location.href='{{post.meta.link}}'">
+            {% if post.thumbnail.src %}
+                {% set imgurl = post.thumbnail.src %}
+            {% elseif post.meta.img_url %}
+                {% set imgurl = post.meta.img_url %}
+            {% else %}
+                {% set imgurl = theme.link ~ '/assets/imgs/default.jpg' %}
+            {% endif %}
+            <div class="card-modern__img uk-margin-small-bottom">
+                <div class="card-modern__img__inner lazy" data-bg="url({{imgurl}})"></div>
+            </div>
+            <div class="card-modern__body ">
+                {% if post.categories.formatted %}
+                    <div class="card-modern__categories">
+                        {{ post.categories.formatted }}
+                    </div>
+                {% endif %}
+
+                <h3 class="uk-margin-small-bottom"><a href="{{post.meta.link}}">{{post.post_title}}</a></h3>
+                <p>{{post.meta.excerpt}}</p>
+            </div>
+            <div class="card-modern__meta">
+                <div class="card-modern__date uk-flex uk-flex-middle"><span uk-icon="calendar"></span> {{echodate(post.post_date)}}</div>
+                <div class="card-modern__readmore flex justify-start align-middle ">
+                    {{trl('Leggi articolo')}} <span uk-icon="arrow-right"></span>
+                </div>
+            </div>
+		</div>
+{% endblock %}

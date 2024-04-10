@@ -1,0 +1,37 @@
+{
+    "files.watcherExclude": {
+        "**/content/vendor/*/**": true,
+        "**/content/plugins/*/**": true,         
+        "**/wp/*/**": true       
+    },
+    "deploy.reloaded": {
+        "packages": [
+            {
+                "name": "Development CSS",
+                "description": "Development CSS",
+                "deployOnSave": false,
+                "removeOnChange": false,
+                "files": [
+                    "content/themes/white-timber/css/main.css",
+                    "content/themes/white-timber/css/main.css.map"
+                ],
+                "targets": [ "Development" ]
+            }
+        ],
+
+        "targets": [
+            {
+                "type": "ftp", 
+                "name": "Development",
+                "description": "development",
+                "checkBeforeDeploy": true,
+                "dir": "/",
+                "host": "", "port": 21, 
+                "user": "", "password": "",
+                "mappings": {
+                }
+            }
+        ]
+    }
+
+}

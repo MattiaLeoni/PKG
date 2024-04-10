@@ -1,0 +1,48 @@
+<header id="masthead" class="site-header uk-flex uk-flex-column uk-flex-middle">
+    {% block header %}
+        <div class="header-desktop {% if options.header_width == 'grid' %} container mx-auto px-4 {% endif %} uk-flex uk-flex-middle uk-flex-between uk-width-1-1">
+            <!-- #logo -->
+            <div class="header-logo">
+                <a href="{{ trl('lang') }}/"><img class="header-desktop__logo" src="{{options.logo.url}}" /></a>
+                <a href="{{ trl('lang') }}/"><img class="header-desktop__logo-mobile" src="{% if options.logo_mobile.url is not empty %} {{options.logo_mobile.url}} {% else %} {{options.logo.url}} {% endif %}" /></a>
+            </div>
+            <!-- #nav -->
+            <div class="uk-flex uk-flex-middle uk-flex-center uk-height-1-1 w-24 bg-color1">
+                
+                <!-- #hamburger -->
+                <div class="site-header__hamburger {% if options.hamburger_always_on != true %} mobile-only {% endif %}">
+                    <button id="header-hamburger" class="hamburger hamburger--squeeze uk-flex uk-flex-middle uk-padding-remove" {#uk-toggle="target: #canvas-header"#} type="button">
+                        {# <span class="hamburger-text uk-margin-small-right" open-text="{{ trl('Menu') }}" close-text="{{ trl('Chiudi') }}" >{{ trl('Menu') }}</span> #}
+                        <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+            <div class="search-bar" id="search-bar" hidden>
+                {% if options.header_width == 'grid' %} <div class="container px-4 mx-auto uk-height-1-1"> {% endif %} 
+                    {{ fn('get_search_form') }}
+                {% if options.header_width == 'grid' %} </div> {% endif %} 
+            </div>
+            <nav id="nav-main" class="nav-main uk-flex uk-flex-middle absolute left-[50%] translate-x-[-50%]" role="navigation">
+                {% include 'layouts/header/parts/navMenu.template.twig' %}
+
+                {% if options.search_position == 'main_header' %}
+                    <div class="search-btn-header uk-flex uk-flex-middle">
+                        <input id='search-btn' type='checkbox' value="" >
+                        <label for='search-btn' id="search-icon-label" uk-toggle="target: #search-bar; animation: uk-animation-fade;"></label>
+                    </div>
+                {% endif %}
+                {% if languages is not empty and options.language_position == 'main_header'  %}
+                    <div class="nav-languages">
+                        <ul class="uk-flex">
+                            {{ languages }}
+                        </ul>
+                    </div>
+                {% endif %}
+            </nav>
+        </div>
+    {% endblock %}
+</header>
+
+{% include 'layouts/header/parts/modalMenu.template.twig' %}

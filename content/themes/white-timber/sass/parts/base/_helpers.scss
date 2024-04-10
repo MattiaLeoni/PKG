@@ -1,0 +1,130 @@
+.no-select{
+    user-select: none;
+}
+.no-events{
+    pointer-events: none;
+}
+.bg-contain{
+    background-size:contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.bg-cover{
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.strong-shadow{
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.4);
+    &:hover{
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    }
+}
+hr.small{
+    width: 120px!important;
+    margin: 10px 0;
+}
+.text-l{
+    font-size: rem(18px);
+}
+.text-s{
+    font-size: rem(14px);
+}
+.text-xs{
+    font-size: rem(12px);
+}
+/* VISUAL COMPOSER HELPERS */
+.align-center{
+    .vc_column-inner>.wpb_wrapper{
+        display: flex;
+        align-items: center;
+    }
+}
+.align-middle{
+    .vc_column-inner>.wpb_wrapper{
+        display: flex;
+        justify-content: center;
+    } 
+}
+.align-right{
+    .vc_column-inner>.wpb_wrapper{
+        display: flex;
+        justify-content: flex-end;
+        @include media('<768px'){
+            justify-content: center;
+            text-align:center;
+        }
+    }
+}
+.align-middle-mobile{
+    @include media('<768px'){
+        .vc_column-inner>.wpb_wrapper{
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            .wpb_wrapper{
+                text-align: center;
+                hr{
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }
+        } 
+    }
+}
+.text-center-mobile{
+    @include tablet{
+        text-align:center;
+    }
+}
+.anchor{
+    position:absolute;
+    margin-top: -90px;
+}
+.text-color-2{
+    color: $color-2;
+}
+.negative-margin-top{
+    margin-top: -60px;
+    @include tablet{
+        margin-top: 0px;
+    }
+}
+.font-titles{
+    font-family: $font-family-titles;
+}
+.text-color-light{
+    color: $color-text-light!important;
+    @include all-typography{
+        color: $color-text-light!important;
+    }
+}
+.text-color-contrast{
+    @include all-typography('y'){
+        color: $color-text-2-contrast!important;
+    }
+}
+
+[displaynone]{
+    display: none;
+}
+
+
+.text-effect{
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-color: transparent;
+    background-image: linear-gradient(90deg,$color-1 0,$color-2 100%);
+}
+
+.divider{
+    background-image: linear-gradient(90deg,$color-1 0,$color-2 100%);
+}
+
+.linear-bg{
+    background-image: linear-gradient(90deg,$color-1 0,$color-2 100%);
+}
+
+.font-shortcut{
+    font-family: "shortcut";
+}

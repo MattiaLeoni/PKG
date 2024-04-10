@@ -1,0 +1,78 @@
+.updated, .update-nag, .is-dismissible, .redux-connect-message, #toplevel_page_vc-general{
+    display:none!important;
+}
+#polylang-update, #advanced-custom-fields-pro-update, #js_composer-update{
+    p{
+        font-size: 0px;
+    }
+}
+
+// REDUX
+.redux-container{
+    .redux-main{
+        .redux-action_bar{
+
+            input{
+                margin-left: 10px;
+            }
+        }
+        .redux-option-image{
+            max-height: 70px!important;
+        }
+        .redux_field_th{
+            padding-right: 20px;
+        }
+    }
+}
+.redux-templates-insert-library-button{
+    display:none!important;
+}
+
+// plugins
+.plugins{
+    .plugin-description{
+        display: none;
+    }
+}
+
+// gutenberg
+#editor{
+    .edit-post-meta-boxes-area{
+        margin: 0px!important;
+        background: white;
+        .postbox-header{
+            background: #017cba;
+            border-radius: 5px;
+            &:hover{
+                background: #017cba;
+            }
+            
+            
+        }
+        .postbox{
+            &.closed{
+                margin-bottom: 10px;
+            }
+            .inside {
+                padding-bottom: 50px!important;
+            }
+            h2.hndle{
+                color:white!important;
+                &:hover{
+                    background: #017cba!important;
+                }
+            }
+            .handlediv{
+                color: white!important;
+            }
+        }
+    }
+    .edit-post-layout__metaboxes {
+        padding: 10px!important;
+        margin: 50px auto;
+        border: 2px solid #d1d1d1;
+        max-width: 850px;
+        width: 850px;
+        border-radius: 5px;
+    }
+}

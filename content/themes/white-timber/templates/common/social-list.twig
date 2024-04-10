@@ -1,0 +1,11 @@
+<div class="uk-flex uk-flex-middle social-list">
+    {% for type, link in options.social %}
+        {% if link %}
+        <a id="social-{{ strtolower(type) }}" href="{{link}}" target="_blank">
+            <div class="social-list__single {{strtolower(type)}} uk-flex uk-flex-center uk-flex-middle">
+                <span uk-icon="{{strtolower(type)}}"></span>
+            </div>
+        </a>
+        {% endif %}
+    {% endfor %}
+</div>

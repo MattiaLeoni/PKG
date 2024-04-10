@@ -1,0 +1,70 @@
+.white-theme{
+    .nf-form-cont{
+        margin-bottom: 0px;
+        .nf-form-fields-required{
+            display: none;
+        }
+        .nf-form-content{
+            max-width: 100%;
+        }
+        input[type="text"], input[type="email"], textarea{
+            border-radius: 8px;
+            background-color: white;
+        }
+        input[type="button"]{
+            background: linear-gradient(90deg, $color-1, $color-2);
+            background-color: $color-1;
+            border-radius: 8px;
+            padding: 8px 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: $transition;
+            &:hover{
+                color: white;
+                background-color: $color-1;
+            }
+        }
+        .nf-response-msg{
+            background: rgb(0, 129, 54);
+            padding: 20px;
+            border-radius: 8px;
+            color: white;
+            font-size: 20px;
+            text-align: center;
+            p{
+                &:last-of-type{
+                    margin-bottom:0px;
+                }
+            }
+        }
+        .listradio-wrap{
+            li{
+                margin-bottom:8px!important;
+            }
+            .nf-field-element{
+                label{
+                    font-size: rem(16px);
+                    &:after{
+                        width: 16px;
+                        height: 16px;
+                    }
+                    &:before{
+                        width: 8px;
+                        height: 8px;
+                        top:5px;
+                        background-color: $color-1;
+                    }
+                    &.nf-checked-label{
+                        &:after{
+                            border-color: $color-1;
+                        }
+                    }
+                }
+            }
+            input[type="radio"]{
+                opacity: 0;
+            }
+        }
+    }
+}

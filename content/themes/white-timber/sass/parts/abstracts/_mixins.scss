@@ -1,0 +1,143 @@
+@mixin on-event($self: false) {
+    @if $self {
+        &,
+        &:hover,
+        &:active,
+        &:focus {
+            @content;
+        }
+    } @else {
+        &:hover,
+        &:active,
+        &:focus {
+            @content;
+        }
+    }
+}
+
+@mixin breakpoint($breakpoint){
+    @media (max-width: #{map-get($breakpoints, $breakpoint)}) {
+        @content;
+    }
+}
+@mixin smallscreen {
+    @media (max-width: #{map-get($breakpoints, 'l')-1px}) {
+        @content;
+    }
+}
+@mixin tablet {
+    @media (max-width: #{map-get($breakpoints, 'm')-1px}) {
+        @content;
+    }
+}
+@mixin phone {
+    @media (max-width: #{map-get($breakpoints, 's')-1px}) {
+        @content;
+    }
+}
+@mixin phonexs {
+    @media (max-width: #{map-get($breakpoints, 'xs')}) {
+        @content;
+    }
+}
+
+@mixin when-inside($context) {
+    #{$context} & {
+      @content;
+    }
+}
+@mixin when-not-inside($context) {
+    :not(#{$context}) & {
+      @content;
+    }
+}
+@mixin add-padding(){
+    padding: 0 40px;
+    @include media('<=1220px'){
+        padding: 0 40px;
+    }
+    @include tablet{
+        padding: 0 30px;
+    }
+    @include phone{
+        padding: 0 15px;
+    }
+}
+
+@mixin admin-sticky-fix( $offset: 0 ) {
+    $narrow-offset: 46px;
+    $wide-offset: 32px;
+    @if $offset != 0 and type-of($offset) == 'number' {
+        $narrow-offset: $narrow-offset + $offset;
+        $wide-offset: $wide-offset + $offset;
+    }
+    .admin-bar & {
+        margin-top: $narrow-offset;
+        @media screen and (min-width: 783px) {
+            margin-top: $wide-offset;
+        }
+    }
+}
+
+@mixin box-shadow($blur: 10px, $opacity:0.3, $top:0px, $left: 0px, $inset: false) {
+    @if $inset {
+      -webkit-box-shadow:inset $top $left $blur rgba(0, 0, 0, $opacity);
+      -moz-box-shadow:inset $top $left $blur rgba(0, 0, 0, $opacity);
+      box-shadow:inset $top $left $blur rgba(0, 0, 0, $opacity);
+    } @else {
+      -webkit-box-shadow: $top $left $blur rgba(0, 0, 0, $opacity);
+      -moz-box-shadow: $top $left $blur rgba(0, 0, 0, $opacity);
+      box-shadow: $top $left $blur rgba(0, 0, 0, $opacity);
+    }
+}
+
+@mixin text-shadow($x1:2px, $y1:2px, $blur1:5px, $color1:black, $x2:null, $y2:null, $blur2:null, $color2:null){
+    @if ($x2) {
+        text-shadow: $x1 $y1 $blur1 $color1, $x2 $y2 $blur2 $color2; 
+    }
+    @else {
+        text-shadow: $x1 $y1 $blur1 $color1;
+    }
+}
+
+
+@mixin text-border($size:2px, $color:black){
+    text-shadow: $size 0 0 $color, calc(0px - #{$size}) 0 0 $color, 0 $size 0 $color, 0 calc(0px - #{$size}) 0 $color, $size $size $color, calc(0px - #{$size}) calc(0px - #{$size}) 0 $color, $size calc(0px - #{$size}) 0 $color, calc(0px - #{$size}) $size 0 $color;
+}
+
+@mixin all-typography($a:'n'){
+    h1,h2,h3,h4,h5,h6,p{
+        @content;
+    }
+    @if ($a=='y'){
+        a{
+            @content;
+        }
+    }
+}
+
+
+
+@mixin optional-at-root($sel) {
+    @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+        @content;
+    }
+}
+  
+@mixin placeholder {
+    @include optional-at-root('::-webkit-input-placeholder') {
+        @content;
+    }
+  
+    @include optional-at-root(':-moz-placeholder') {
+        @content;
+    }
+  
+    @include optional-at-root('::-moz-placeholder') {
+        @content;
+    }
+  
+    @include optional-at-root(':-ms-input-placeholder') {
+        @content;
+    }
+}

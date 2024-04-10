@@ -1,0 +1,21 @@
+<div class="horizontal-card">
+    <div class="uk-grid-collapse uk-child-width-1-2@m uk-flex uk-grid-match {{vc.reversed}}" uk-grid>
+        <div style="background-color: {{vc.bg_text}}" class="horizontal-card__text uk-padding-large uk-flex uk-flex-center uk-flex-middle" uk-scrollspy="target: > div; cls: uk-animation-slide-left-small; delay: 200">
+            <div><h4 style="color: {{vc.color_text}}">{{vc.title}}</h4></div>
+            {% if vc.text %}<div class="uk-margin-top" style="color: {{vc.color_text}}"><p >{{vc.text}}</p></div>{% endif %}
+            {% if vc.link_text %}<div class="{% if vc.text is empty %}uk-margin-top{% endif %}"><a href="{{vc.link}}" style="color: {{vc.color_text}}" class="uk-text-bold link-default">{{vc.link_text}}</a></div>{% endif %}
+        </div>
+        <div style="background-color: {{vc.bg_img}};" class="horizontal-card__img uk-padding-large {% if vc.img_size == 'full' or vc.img_size == 'fill' %}uk-padding-remove{% endif %}">
+            <div class="uk-position-relative">
+                <div class="lazy horizontal-card__img__container" 
+                    {% if vc.img_size == 'fill' or vc.img_size == 'full' %} style="background-size:cover" {% endif %} 
+                     data-bg="url({{vc.img_url}})"
+                >
+                    {% if vc.img_size == 'full' %}
+                        <img  class="lazy uk-width-1-1 uk-invisible" data-src="{{vc.img_url}}">
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="modal-menu uk-width-1-1">
+	<div class="modal-menu__content">
+        <div class="container mx-auto px-4 uk-position-relative">
+            <ul class="modal-menu__list modal_primary  canvas-nav uk-nav-parent-icon" uk-nav>
+                {% for item in menus.modal_1 %}
+                    <li class="modal-menu__list-item {% if item.children %}uk-parent{% endif %} "><a class="{% if item.active %}active{% endif %}" href="{{item.url}}"><span class="underline-effect negative">{{ item.title }}</span></a>
+                        {% if item.children %}
+                            <ul class="uk-nav-sub">
+                                {% for child in item.children %}
+                                    <li><a class="{% if child.active %}active{% endif %}" href="{{child.url}}">{{child.title}}</a></li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+            <ul class="modal-menu__list modal_infos mt-8">
+                {% if options.phone %}
+                    <li class="modal-menu__list-item"><a class="underline-effect negative text-base" href="tel:{{options.phone}}"><span uk-icon="receiver" class="mr-3"></span> {{ options.phone }}</a></li>
+                {% endif %}
+                {% if options.email %}
+                    <li class="modal-menu__list-item uk-margin-small"><a class="underline-effect negative text-base" href="mailto:{{options.email}}"><span class="mr-3" uk-icon="mail"></span>{{ options.email }}</a></li>
+                {% endif %}
+                <li class="modal-menu__list-item modal_infos__social mt-8">{% include 'common/social-list.twig' %}</li>
+            </ul>
+        </div>
+    </div>
+</div>

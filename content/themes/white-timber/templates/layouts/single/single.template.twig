@@ -1,0 +1,73 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	{% if cover_image.src is not empty %}
+		<div class="article-image" uk-parallax="bgy: -400" style="background-image:url({{cover_image.src}})">
+			<div class="container mx-auto px-4 uk-height-1-1 uk-position-relative xl:pt-32 pt-20 pb-10 ">
+				{% include 'common/breadcrumbs.twig' %}
+				<h1 class="text-white z-10 relative font-semibold">{{ post.title }}</h1>
+			</div>
+
+		</div>
+	{% else %}
+		<div class="container mx-auto px-4 uk-margin-small-top">
+			{% include 'common/breadcrumbs.twig' %}
+		</div>
+
+	{% endif %}
+	<div class="content-wrapper uk-margin-top uk-margin-medium-bottom container mx-auto px-4">
+		<article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
+			<section class="article-content single-article uk-padding-remove-horizontal ">
+				{% if cover_image.src is empty %}
+					<h1 class="article-h1">{{ post.title }}</h1>
+				{% endif %}
+				{% set subtitle = post.meta('subtitle') %}
+				{% if subtitle is not empty %}<h2>{{ subtitle }}</h2>{% endif %}
+				<div class="blog-meta uk-margin-top">
+					<div class="blog-meta__layout uk-flex uk-flex-between uk-flex-middle">
+						<div class="blog-meta__layout__left uk-flex uk-flex-middle">
+							<div class="uk-flex uk-flex-middle"><span uk-icon="icon: calendar"></span> {{ post.date }}</div> 
+							<span class="divider-line">//</span> 
+							<div>
+								{% if post_categories_link is not empty %}
+									{{post_categories_link|join(', ')}}
+								{% endif %}
+							</div>
+						</div>
+						<div class="blog-meta__layout__right uk-flex">{% include 'common/social-share.twig' %}</div>
+					</div>
+				</div>
+				<div class="article-body uk-margin-medium-top uk-margin-medium-bottom">
+					{{post.content}}
+				</div>
+				<div class="bottom-article-share-social uk-flex uk-flex-center">
+					{% include 'common/social-share.twig' %}
+				</div>
+				<div class="related-news">
+					{% set posts_slider = related_news %}
+					{% include 'common/posts-slider.template.twig' %}
+				</div> 
+			</section> 
+
+			<!-- comment box -->
+			{# <section class="comment-box">
+				<!-- comments -->
+				<div class="comments">
+				    {% if post.comments %}
+					<h3> comments </h3>
+					{% for cmt in post.comments %}
+					    {% include "comment.twig" with {comment:cmt} %}
+					{% endfor %}
+				    {% endif %}
+				</div>
+
+				{% if post.comment_status == "closed" %}
+					<p> comments for this post are closed </p>
+				{% else %}
+				    <!-- comment form -->
+				    {% include "comment-form.twig" %}
+				{% endif %}
+			</section> #}
+		</article>
+	</div><!-- /content-wrapper -->
+{% endblock %}

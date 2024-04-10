@@ -1,0 +1,15 @@
+{% if link_type == 'youtube' %}
+    <div uk-lightbox>
+{% endif %}
+{% if button_align == 'center' %}
+    <div class="uk-text-center uk-height-auto">
+{% endif %}
+<a href="{{button_link}}" {% if target_blank %}target="_blank"{% endif %} {% if link_type == 'youtube' %} data-caption="{{link_caption}}"  {% endif %}>
+    <button class="theme-button {{button_style}}"><div>{{button_title}}</div></button> 
+</a>
+{% if button_align == 'center' %}
+    </div>
+{% endif %}
+{% if link_type == 'youtube' %}
+    </div>
+{% endif %}

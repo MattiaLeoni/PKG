@@ -1,0 +1,83 @@
+// ==========================================================================
+// $Breakpoints
+// ==========================================================================
+$breakpoints: (
+  xs: 320px,
+  s: 640px, 
+  sm: 768px, //ipad
+  m: 960px,
+  lg: 1024px,
+  l: 1200px,
+  xl: 1400px,
+) !default;
+
+// ==========================================================================
+// $Colors
+// ==========================================================================
+
+//BASE colors
+$color-1: #B7251C;
+$color-1-light: #d23c34;
+$color-1-dark: #780d07;
+$color-2: #20ffa9;
+$color-2-light: #85ffd0;
+$color-2-dark: #0dd387;
+$color-dark-grey: #343434;
+
+//BG colors
+$color-bg: #FFFFFF;
+$color-bg-2: #F9F9F9;
+$color-bg-3: #efefef;
+$color-bg-dark: #151515;
+$color-header-bg: #FFFFFF;
+$color-header-top-bg: $color-bg-dark;
+$color-header-top: white;
+$color-grey: #e6e6e6;
+//PRIMARY colors
+// $color-brown: #685A51;
+// $color-azure: #57A6C5;
+
+//TYPOGRAPHY colors
+$color-text: #131313;
+$color-text-2: $color-1;
+$color-text-2-contrast: white;
+$color-text-2-contrast-light: rgb(224, 224, 224);
+$color-text-3: $color-2;
+$color-text-light: #696969;
+$color-text-lighter: #b3b3b3;
+$color-text-header: $color-text;
+$color-text-header-2: $color-text-2;
+
+//FONT
+$font-size-base: 16px;
+
+$font-family-base: 'Roboto Condensed';
+$font-family-titles: 'Space Grotesk';
+
+//DIMENSIONS
+
+// CLASSIC HEADER
+$top_header_height: 0;
+$main_header_height: 100px;
+
+$top_header_height_mobile: 0px;
+$main_header_height_mobile: 80px;
+
+$header_height: #{$top_header_height + $main_header_height};
+$header_height_mobile: $main_header_height_mobile;
+$header_switch: map-get($breakpoints, 'm');
+
+// FLOATING HEADER
+$top_floating_height: 60px;
+$main_floating_height: 100px;
+
+$top_floating_height_mobile: 0px;
+$main_floating_height_mobile: 60px;
+
+$floating_height: #{$top_floating_height + $main_floating_height};
+$floating_height_mobile: 60px;
+
+
+//VARIOUS
+$transition: all 0.3s;
+$header_transition: 0.6s cubic-bezier(0.6, -0.28, 0.74, 0.05);

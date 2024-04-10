@@ -1,0 +1,36 @@
+<div class="top-header uk-width-1-1">
+    <div class="{% if options.header_width == 'grid' %} container mx-auto px-4 {% endif %} uk-position-relative uk-height-1-1 uk-flex uk-flex-middle uk-flex-between">
+        <div class="top-header__social">
+            {% include 'common/social-list.twig' %}
+        </div>
+        <div class="uk-height-1-1 uk-flex uk-flex-middle">
+            {% if options.search_position == 'top_header' %}
+                <div class="search-btn-header uk-flex uk-flex-middle">
+                    <input id='search-btn' type='checkbox' value="" >
+                    <label for='search-btn' id="search-icon-label" uk-toggle="target: #search-bar; animation: uk-animation-fade;"></label>
+                </div>
+                <div class="top-search-label">{{ trl('Cerca') }}</div>
+            {% endif %}
+            {% if options.email %}
+                <div class="top-header__meta ">
+                    <a class="uk-flex uk-flex-middle" href="mailto:{{options.email}}">
+                        <span uk-icon="icon: mail"></span> {{options.email}}
+                    </a>
+                </div>
+            {% endif %}{% if options.phone %}
+                <div class="top-header__meta ">
+                    <a class="uk-flex uk-flex-middle" href="tel:{{options.phone}}">
+                        <span uk-icon="icon: receiver"></span> {{options.phone}}
+                    </a>
+                </div>
+            {% endif %}
+            {% if languages is not empty and options.language_position == 'top_header' %}
+                <div class="nav-languages uk-flex uk-flex-middle">
+                    <ul class="uk-flex uk-flex-middle">
+                        {{ languages }}
+                    </ul>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>

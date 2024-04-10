@@ -1,0 +1,39 @@
+.pagination{
+    padding:0px;
+    display: flex;
+    // align-items: center;
+    // justify-content: center;
+    li{
+        margin-right: 15px;
+        display:inline;
+        a{
+            color:$color-text-light;
+            font-weight: bold;
+            @include when-inside('.dark-pagination'){
+                color: $color-text;
+            }
+        }
+        a, span, button{
+            padding: 0px;
+            span{
+                padding: 0px;
+                svg{
+                    margin-top:-2px;
+                }
+            }
+        }
+        button{
+            background: transparent;
+            border:0px;
+        }
+        &.current{
+            font-weight: bold;
+            color: $color-2;
+        }
+        &.disabled{
+            button, a{
+                color: $color-text-light;
+            }
+        }
+    }
+}

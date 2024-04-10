@@ -1,0 +1,22 @@
+{% if posts_slider is not empty %}
+    {% if card is empty %}
+        {% set card = 'layouts/tease/tease-modern.template.twig' %}
+    {% endif %}
+    <div class="uk-margin-medium-top uk-margin-bottom"><h3>{{trl('Articoli correlati')}}</div>
+    <div class="slider-news uk-position-relative" uk-slider >
+        <div class="uk-slider-container">
+            <ul class=" {# {% if posts_slider|length <= 2 %} uk-flex uk-flex-center {% endif %} #} uk-slider-items uk-child-width-1-2@s uk-child-width-1-3@m uk-grid uk-grid-medium uk-grid-match" >
+                {% for post in posts_slider %}
+                <div>
+                    {% include card %}
+                </div>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="uk-container nav-arrows uk-flex uk-flex-middle uk-flex-center uk-margin-bottom uk-hidden@m">
+            <ul class="uk-slider-nav uk-dotnav "></ul>
+        </div>
+        <a class="uk-position-center-left-out uk-visible@m uk-margin-right" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+        <a class="uk-position-center-right-out uk-visible@m uk-margin-left" href="#" uk-slidenav-next uk-slider-item="next"></a>
+    </div>
+{% endif %}
